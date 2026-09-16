@@ -1,4 +1,24 @@
-\# Employee Attrition Prediction \& Explainable HR Analytics
+\# 👨‍💼 Employee Attrition Prediction \& Explainable HR Analytics
+
+
+
+An end-to-end Data Science project that predicts the likelihood of employee attrition using Machine Learning and explains individual predictions using SHAP (SHapley Additive exPlanations).
+
+
+
+\## 🚀 Live Demo
+
+
+
+👉 \*\*Streamlit App:\*\* https://employee-attrition-project-zenbb3bkadw36vpe4rxlvt.streamlit.app/
+
+
+
+The deployed application allows users to enter employee information and receive an attrition prediction, probability estimate, risk category, and an explanation of the factors influencing the prediction.
+
+
+
+\---
 
 
 
@@ -10,31 +30,45 @@ Employee attrition is an important challenge for organizations because employee 
 
 
 
-This project uses Machine Learning to predict whether an employee is likely to leave the organization based on factors such as job role, overtime, income, satisfaction, experience, work-life balance, and other employee-related characteristics.
+This project uses employee demographic, job, satisfaction, compensation, and work-history information to build a Machine Learning model that estimates whether an employee is likely to leave the organization.
 
 
 
-The project also uses SHAP (SHapley Additive exPlanations) to explain which factors influenced an individual prediction.
+The project also incorporates \*\*SHAP explainability\*\* to understand which features contributed most to each individual prediction.
 
 
 
-\## 🎯 Project Objectives
+\---
 
 
 
-\- Analyze employee data and identify patterns related to attrition.
+\## 🎯 Objectives
 
-\- Perform data cleaning and preprocessing.
 
-\- Build and compare multiple Machine Learning models.
 
-\- Predict the likelihood of employee attrition.
+\* Understand and explore employee attrition data
 
-\- Explain individual predictions using SHAP.
+\* Clean and preprocess the dataset
 
-\- Build an interactive Streamlit web application.
+\* Perform exploratory data analysis
 
-\- Deploy the application for practical demonstration.
+\* Prepare categorical and numerical features for Machine Learning
+
+\* Build and evaluate multiple Machine Learning models
+
+\* Select a primary model based on the project's objective and evaluation results
+
+\* Predict employee attrition probability
+
+\* Explain individual predictions using SHAP
+
+\* Build an interactive Streamlit application
+
+\* Deploy the application online
+
+
+
+\---
 
 
 
@@ -42,53 +76,143 @@ The project also uses SHAP (SHapley Additive exPlanations) to explain which fact
 
 
 
-The project uses the IBM HR Analytics Employee Attrition \& Performance dataset.
+The project uses the \*\*IBM HR Analytics Employee Attrition \& Performance\*\* dataset.
 
 
 
-The dataset contains information about employees, including:
+\### Dataset Information
 
 
 
-\- Age
+\* \*\*Rows:\*\* 1,470
 
-\- Department
+\* \*\*Original Features:\*\* 35
 
-\- Job Role
+\* \*\*Target Variable:\*\* `Attrition`
 
-\- Monthly Income
+\* \*\*Missing Values:\*\* None
 
-\- Overtime
-
-\- Job Satisfaction
-
-\- Environment Satisfaction
-
-\- Work-Life Balance
-
-\- Total Working Years
-
-\- Years at Company
-
-\- Business Travel
-
-\- Marital Status
-
-\- Education
-
-\- And other employee-related attributes
+\* \*\*Duplicate Rows:\*\* None
 
 
 
-The target variable is:
+\### Target Distribution
 
 
 
-\*\*Attrition\*\*
+\* \*\*No:\*\* 1,233 employees
 
-\- Yes — Employee left the organization
+\* \*\*Yes:\*\* 237 employees
 
-\- No — Employee stayed with the organization
+
+
+\### Important Features
+
+
+
+The dataset contains information such as:
+
+
+
+\* Age
+
+\* Department
+
+\* Job Role
+
+\* Monthly Income
+
+\* Overtime
+
+\* Job Satisfaction
+
+\* Environment Satisfaction
+
+\* Work-Life Balance
+
+\* Total Working Years
+
+\* Years at Company
+
+\* Business Travel
+
+\* Marital Status
+
+\* Education
+
+\* Job Level
+
+\* Number of Companies Worked
+
+\* Years in Current Role
+
+\* Years Since Last Promotion
+
+\* Years With Current Manager
+
+
+
+\---
+
+
+
+\## 🔄 Machine Learning Workflow
+
+
+
+```text
+
+Dataset
+
+&#x20;  ↓
+
+Data Understanding
+
+&#x20;  ↓
+
+Data Cleaning
+
+&#x20;  ↓
+
+Exploratory Data Analysis
+
+&#x20;  ↓
+
+Feature Selection \& Preprocessing
+
+&#x20;  ↓
+
+Train-Test Split
+
+&#x20;  ↓
+
+Model Training
+
+&#x20;  ↓
+
+Model Evaluation
+
+&#x20;  ↓
+
+Logistic Regression Selection
+
+&#x20;  ↓
+
+SHAP Explainability
+
+&#x20;  ↓
+
+Streamlit Application
+
+&#x20;  ↓
+
+Cloud Deployment
+
+```
+
+
+
+\---
 
 
 
@@ -96,7 +220,7 @@ The target variable is:
 
 
 
-The following models were evaluated:
+The following models were trained and evaluated:
 
 
 
@@ -110,7 +234,39 @@ The following models were evaluated:
 
 
 
-Logistic Regression was selected as the primary model for the Streamlit application because the project places emphasis on identifying potential attrition cases and its evaluation showed comparatively strong recall and ROC-AUC on the held-out test set.
+\### Primary Model
+
+
+
+\*\*Logistic Regression\*\* was selected as the primary model for the deployed application because the project emphasizes identifying potential attrition cases and the model showed comparatively strong recall, F1-score, and ROC-AUC among the evaluated models.
+
+
+
+\### Logistic Regression Test Results
+
+
+
+| Metric    |  Score |
+
+| --------- | -----: |
+
+| Accuracy  | 75.17% |
+
+| Precision | 34.88% |
+
+| Recall    | 63.83% |
+
+| F1-Score  | 45.11% |
+
+| ROC-AUC   | 80.11% |
+
+
+
+These results are based on the held-out test set and should be interpreted in the context of the dataset's class imbalance.
+
+
+
+\---
 
 
 
@@ -118,25 +274,39 @@ Logistic Regression was selected as the primary model for the Streamlit applicat
 
 
 
-SHAP is used to explain individual predictions.
+To make the Machine Learning predictions more interpretable, this project uses \*\*SHAP (SHapley Additive exPlanations)\*\*.
 
 
 
-The application displays:
+The Streamlit application provides:
 
 
 
-\- Top factors influencing the prediction
+\* Top factors influencing an individual prediction
 
-\- SHAP values
+\* SHAP values
 
-\- Whether each factor increases or decreases the model's predicted attrition risk
+\* Direction of influence
 
-\- A SHAP impact visualization
+\* SHAP impact visualization
 
 
 
-Positive SHAP values indicate that a feature pushes the model toward higher predicted attrition risk, while negative values push the prediction toward lower predicted attrition risk.
+\### Interpretation
+
+
+
+\* \*\*Positive SHAP value:\*\* pushes the prediction toward higher attrition risk
+
+\* \*\*Negative SHAP value:\*\* pushes the prediction toward lower attrition risk
+
+
+
+SHAP explanations describe how the trained model arrived at a prediction; they should not be interpreted as proof that a particular factor causes employee attrition.
+
+
+
+\---
 
 
 
@@ -144,19 +314,45 @@ Positive SHAP values indicate that a feature pushes the model toward higher pred
 
 
 
-The Streamlit application allows users to enter employee information and receive:
+The deployed application allows users to enter employee information and provides:
 
 
 
-\- Attrition prediction
+\### 🔮 Prediction
 
-\- Attrition probability
 
-\- Risk category
 
-\- Top SHAP factors
+\* Employee attrition prediction
 
-\- SHAP impact visualization
+\* Estimated attrition probability
+
+\* Risk category
+
+
+
+\### 🔍 Explainability
+
+
+
+\* Top SHAP-influencing features
+
+\* SHAP values
+
+\* Impact direction
+
+\* SHAP visualization
+
+
+
+\### 📌 Additional Information
+
+
+
+The application also includes an explanation of the project, technologies used, and an educational-project disclaimer.
+
+
+
+\---
 
 
 
@@ -164,23 +360,59 @@ The Streamlit application allows users to enter employee information and receive
 
 
 
-\- Python
+\### Programming \& Data
 
-\- Pandas
 
-\- NumPy
 
-\- Scikit-learn
+\* Python
 
-\- XGBoost
+\* Pandas
 
-\- SHAP
+\* NumPy
 
-\- Joblib
 
-\- Streamlit
 
-\- Jupyter Notebook
+\### Machine Learning
+
+
+
+\* Scikit-learn
+
+\* XGBoost
+
+
+
+\### Explainable AI
+
+
+
+\* SHAP
+
+
+
+\### Deployment \& Application
+
+
+
+\* Streamlit
+
+\* Joblib
+
+
+
+\### Development
+
+
+
+\* Jupyter Notebook
+
+\* Git
+
+\* GitHub
+
+
+
+\---
 
 
 
@@ -198,9 +430,9 @@ employee-attrition-project/
 
 ├── requirements.txt
 
-├── .gitignore
-
 ├── README.md
+
+├── .gitignore
 
 │
 
@@ -223,4 +455,92 @@ employee-attrition-project/
 └── notebooks/
 
 &#x20;   └── 01\_data\_understanding.ipynb
+
+```
+
+
+
+\---
+
+
+
+\## ▶️ Run the Project Locally
+
+
+
+\### 1. Clone the repository
+
+
+
+```bash
+
+git clone https://github.com/parimiNavyasri/employee-attrition-project.git
+
+```
+
+
+
+\### 2. Navigate to the project folder
+
+
+
+```bash
+
+cd employee-attrition-project
+
+```
+
+
+
+\### 3. Install the dependencies
+
+
+
+```bash
+
+pip install -r requirements.txt
+
+```
+
+
+
+\### 4. Run the Streamlit application
+
+
+
+```bash
+
+streamlit run app.py
+
+```
+
+
+
+The application will open in your browser.
+
+
+
+\---
+
+
+
+\## 📈 Key Project Outcomes
+
+
+
+Through this project, I implemented an end-to-end Machine Learning workflow involving:
+
+
+
+\* Data cleaning and validation
+
+\* Exploratory data analysis
+
+\* Feature preprocessing
+
+\* Categorical feature encoding
+
+\* Train-test s
+
+
 
